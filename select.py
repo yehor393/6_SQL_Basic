@@ -36,9 +36,12 @@ def execute_queries_from_file(conn, file_path):
             if query.strip():
                 cursor.execute(query)
                 result = cursor.fetchall()
+                if result is not None:
+                    for row in result:
+                        print(row)
         cursor.close()
-    for row in result:
-        print(row)
+
+
 
 
 def is_table_empty(conn, table):
