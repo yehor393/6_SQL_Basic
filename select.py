@@ -42,8 +42,6 @@ def execute_queries_from_file(conn, file_path):
         cursor.close()
 
 
-
-
 def is_table_empty(conn, table):
     with conn.cursor() as cur:
         cur.execute(f"SELECT COUNT(*) FROM {table};")
