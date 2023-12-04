@@ -1,3 +1,4 @@
+import sys
 from typing import Any
 
 from connection import create_connection
@@ -56,5 +57,11 @@ with create_connection() as conn:
             and is_table_empty(conn, 'Subjects'):
         insert_random_data(conn)
 
-    execute_queries_from_file(conn, 'query_10.sql')
+if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        print("Usage: python3 select.py <query_file>")
+    else:
+        query_file = sys.argv[1]
+        with create_connection() as conn:
+            execute_queries_from_file(conn, query_file)
 
