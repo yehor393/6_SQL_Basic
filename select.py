@@ -56,5 +56,5 @@ with create_connection() as conn:
             and is_table_empty(conn, 'Subjects'):
         insert_random_data(conn)
 
-    execute_queries_from_file(conn, 'query_1.sql')
+    execute_queries_from_file(conn, 'query_10.sql')
 
